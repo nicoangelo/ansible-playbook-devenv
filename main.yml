@@ -1,0 +1,8 @@
+- hosts: all
+
+  roles:
+    - sicruse.powerline-fonts
+
+  tasks: 
+    - include_tasks: tasks/git.yml
+    - include_tasks: tasks/beyond_compare.yml
