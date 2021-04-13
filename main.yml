@@ -1,7 +1,10 @@
 - hosts: all
 
   roles:
-    - sicruse.powerline-fonts
+    - role: sicruse.powerline-fonts
+      vars:
+        powerline_fonts:
+          - "Meslo\\ Slashed"
 
   tasks: 
     - include_tasks: tasks/git.yml
