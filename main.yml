@@ -5,7 +5,16 @@
       vars:
         powerline_fonts:
           - "Meslo\\ Slashed"
+    
+    - role: gantsign.oh-my-zsh
+      vars:
+        oh_my_zsh_theme: robbyrussell
+        oh_my_zsh_plugins:
+          - git
+        oh_my_zsh_install: yes
+        users:
+          - username: "{{ ansible_user_id }}"
 
-  tasks: 
+  tasks:
     - include_tasks: tasks/git.yml
     - include_tasks: tasks/beyond_compare.yml
