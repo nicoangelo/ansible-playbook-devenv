@@ -1,0 +1,7 @@
+- name: Ensure double-click to open files and folders
+  community.general.ini_file:
+    path: "/home/{{ ansible_user_id }}/.config/kdeglobals"
+    section: KDE
+    option: SingleClick
+    value: "false"
+    no_extra_spaces: yes

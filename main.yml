@@ -8,7 +8,7 @@
     
     - role: gantsign.oh-my-zsh
       vars:
-        oh_my_zsh_theme: robbyrussell
+        oh_my_zsh_theme: agnoster
         oh_my_zsh_plugins:
           - git
         oh_my_zsh_install: yes
@@ -16,5 +16,6 @@
           - username: "{{ ansible_user_id }}"
 
   tasks:
-    - include_tasks: tasks/git.yml
     - include_tasks: tasks/beyond_compare.yml
+    - include_tasks: tasks/git.yml
+    - include_tasks: tasks/kde.yml
