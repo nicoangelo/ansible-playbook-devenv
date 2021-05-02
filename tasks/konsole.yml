@@ -1,0 +1,11 @@
+- name: Copy profile
+  ansible.builtin.copy:
+    src: ../files/Profile.profile
+    dest: "/home/{{ ansible_user_id }}/.local/share/konsole/"
+- name: Ensure profile is set as default
+  community.general.ini_file:
+    path: "/home/{{ ansible_user_id }}/.config/konsolerc"
+    section: Desktop Entry
+    option: DefaultProfile
+    value: "Profile.profile"
+    no_extra_spaces: yes

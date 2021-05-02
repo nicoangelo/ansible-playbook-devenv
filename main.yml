@@ -19,3 +19,4 @@
     - include_tasks: tasks/beyond_compare.yml
     - include_tasks: tasks/git.yml
     - include_tasks: tasks/kde.yml
+    - include_tasks: tasks/konsole.yml
