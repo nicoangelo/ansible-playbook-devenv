@@ -1,0 +1,58 @@
+- name: Install Docker prerequisites
+  apt:
+    pkg:
+    - docker
+    - docker-engine
+    - docker.io
+    - containerd
+    - runc
+    state: absent
+  become: yes
+
+- name: apt-get update
+  apt:
+    update_cache: yes
+  become: yes
+
+- name: Install Docker prerequisites
+  apt:
+    pkg:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg
+    - lsb-release
+  become: yes
+
+- name: Add docker apt signing key
+  apt_key:
+    id: 9DC858229FC7DD38854AE2D88D81803C0EBFCD88
+    url: https://download.docker.com/linux/debian/gpg
+  become: yes
+
+- name: Add docker repository into sources list
+  apt_repository:
+    repo: deb [arch=amd64] https://download.docker.com/linux/debian {{ ansible_lsb.codename }} stable
+    state: present
+    filename: docker
+  become: yes
+
+- name: Install docker-ce
+  apt:
+    pkg:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+    update_cache: yes
+  become: yes
+
+- name: Download docker-compose
+  get_url:
+    url: "https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64"
+    checksum: "sha256:{{ docker_compose_sha256 }}"
+    dest: "/home/{{ ansible_user_id }}/.local/bin/docker-compose"
+
+- name: Install docker-compose
+  file:
+    path: "/home/{{ ansible_user_id }}/.local/bin/docker-compose"
+    mode: '0744'
