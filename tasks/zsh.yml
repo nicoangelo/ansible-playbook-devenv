@@ -1,0 +1,8 @@
+---
+- name: Load .profile in .zshrc
+  blockinfile:
+    path: "/home/{{ ansible_user_id }}/.zshrc"
+    block: |
+      if [ -f ~/.profile ]; then
+        . ~/.profile
+      fi

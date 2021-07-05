@@ -1,0 +1,13 @@
+---
+
+- name: Check if VS Code is installed
+  command: dpkg-query -W code
+  register: code_deb_installed
+  failed_when: code_deb_installed.rc > 1
+  changed_when: code_deb_installed.rc == 1
+
+- name: Install VS Code .deb
+  apt:
+    deb: https://code.visualstudio.com/sha/download?build=stable&os=linux-deb-x64
+  become: true
+  when: code_deb_installed.rc == 1

@@ -21,3 +21,5 @@
     - include_tasks: tasks/kde.yml
     - include_tasks: tasks/konsole.yml
     - include_tasks: tasks/docker.yml
+    - include_tasks: tasks/code.yml
+    - include_tasks: tasks/zsh.yml
