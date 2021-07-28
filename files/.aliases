@@ -1,6 +1,6 @@
 alias r='cd $HOME/repos'
 alias x=exit
-alias c=code .
+alias c='code .'
 alias ss='git status'
 alias pp='git pull' 
 alias pu='git push'

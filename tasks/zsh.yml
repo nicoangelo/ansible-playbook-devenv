@@ -1,20 +1,16 @@
 ---
-- name: Load .profile in .zshrc
+- name: Write .aliases
+  copy:
+    src: ./files/.aliases
+    dest: "/home/{{ ansible_user_id }}/.aliases"
+    mode: 0644
+- name: Load .aliases and .profile in .zshrc
   blockinfile:
     path: "/home/{{ ansible_user_id }}/.zshrc"
     block: |
       if [ -f ~/.profile ]; then
         . ~/.profile
       fi
-- name: Write .aliases
-  copy:
-    src: ./files/.aliases
-    dest: "/home/{{ ansible_user_id }}/.aliases"
-    mode: 0644
-- name: Load .aliases in .zshrc
-  blockinfile:
-    path: "/home/{{ ansible_user_id }}/.zshrc"
-    block: |
       if [ -f ~/.aliases ]; then
         . ~/.aliases
       fi
