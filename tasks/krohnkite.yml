@@ -1,0 +1,26 @@
+---
+- name: Download Krohnkite kwinscript
+  ansible.builtin.get_url:
+    url: "https://github.com/esjeon/krohnkite/releases/download/v{{ krohnkite_version }}/krohnkite-{{ krohnkite_version }}.kwinscript"
+    dest: /tmp/krohnkite.kwinscript
+
+- name: Check if Krohnkite is already installed
+  ansible.builtin.shell:
+    cmd: plasmapkg2 -t kwinscript -s krohnkite
+  register: check_installed
+
+- name: Install Krohnkite using plasmapkg2
+  ansible.builtin.shell:
+    cmd: plasmapkg2 -t kwinscript -i /tmp/krohnkite.kwinscript
+  when: check_installed.stdout.find('Error') != -1
+
+- name: Create config symlink directory
+  ansible.builtin.file:
+    path: ~/.local/share/kservices5/
+    state: directory
+
+- name: Enable configuration in KWin scripts window
+  ansible.builtin.file:
+    src: ~/.local/share/kwin/scripts/krohnkite/metadata.desktop
+    dest: ~/.local/share/kservices5/krohnkite.desktop
+    state: link

@@ -8,10 +8,10 @@
     no_extra_spaces: yes
     mode: u=rw,g=r,o=r
 
-- name: Set shortcut for Konsole
+- name: Set shortcuts
   community.general.ini_file:
     path: "/home/{{ ansible_user_id }}/.config/kglobalshortcutsrc"
-    section: org.kde.konsole.desktop
+    section: "{{ item.section }}"
     option: "{{ item.option }}"
     value: "{{ item.value }}"
     no_extra_spaces: yes
@@ -19,23 +19,22 @@
   with_items:
     - option: NewTab
       value: ",none,Open a New Tab"
+      section: org.kde.konsole.desktop
     - option: NewWindow
       value: "none,none,Open a New Window"
+      section: org.kde.konsole.desktop
     - option: _k_friendly_name
       value: Launch Konsole
+      section: org.kde.konsole.desktop
     - option: _launch
       value: Meta+T,none,Launch Konsole
-
-- name: Set shortcut for Dolphin
-  community.general.ini_file:
-    path: "/home/{{ ansible_user_id }}/.config/kglobalshortcutsrc"
-    section: org.kde.dolphin.desktop
-    option: "{{ item.option }}"
-    value: "{{ item.value }}"
-    no_extra_spaces: yes
-    mode: u=rw
-  with_items:
+      section: org.kde.konsole.desktop
     - option: _k_friendly_name
       value: Launch Dolphin
+      section: org.kde.dolphin.desktop
     - option: _launch
       value: Meta+E,none,Launch Dolphin
+      section: org.kde.dolphin.desktop
+    - option: "Krohnkite: Three Column Layout"
+      value: Alt+Shift+T,none,
+      section: kwin
