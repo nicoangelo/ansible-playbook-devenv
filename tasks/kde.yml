@@ -16,25 +16,4 @@
     value: "{{ item.value }}"
     no_extra_spaces: yes
     mode: u=rw
-  with_items:
-    - option: NewTab
-      value: ",none,Open a New Tab"
-      section: org.kde.konsole.desktop
-    - option: NewWindow
-      value: "none,none,Open a New Window"
-      section: org.kde.konsole.desktop
-    - option: _k_friendly_name
-      value: Launch Konsole
-      section: org.kde.konsole.desktop
-    - option: _launch
-      value: Meta+T,none,Launch Konsole
-      section: org.kde.konsole.desktop
-    - option: _k_friendly_name
-      value: Launch Dolphin
-      section: org.kde.dolphin.desktop
-    - option: _launch
-      value: Meta+E,none,Launch Dolphin
-      section: org.kde.dolphin.desktop
-    - option: "Krohnkite: Three Column Layout"
-      value: Alt+Shift+T,none,
-      section: kwin
+  with_items: "{{ global_shortcuts }}"

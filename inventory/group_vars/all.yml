@@ -2,3 +2,41 @@ docker_compose_version: 1.29.2
 docker_compose_sha256: f3f10cf3dbb8107e9ba2ea5f23c1d2159ff7321d16f0a23051d68d8e2547b323
 
 krohnkite_version: 0.7
+
+global_shortcuts: 
+  - option: NewTab
+    value: ",none,Open a New Tab"
+    section: org.kde.konsole.desktop
+  - option: NewWindow
+    value: "none,none,Open a New Window"
+    section: org.kde.konsole.desktop
+  - option: _k_friendly_name
+    value: Launch Konsole
+    section: org.kde.konsole.desktop
+  - option: _launch
+    value: Meta+T,none,Launch Konsole
+    section: org.kde.konsole.desktop
+  - option: _k_friendly_name
+    value: Launch Dolphin
+    section: org.kde.dolphin.desktop
+  - option: _launch
+    value: Meta+E,none,Launch Dolphin
+    section: org.kde.dolphin.desktop
+  - option: "Krohnkite: Three Column Layout"
+    value: Meta+Shift+T,none,
+    section: kwin
+  - option: "Krohnkite: Tile Layout"
+    value: Alt+Shift+T,none,
+    section: kwin
+  - option: "Krohnkite: Grow Height"
+    value: Meta+Alt+J,none,
+    section: kwin
+  - option: "Krohnkite: Grow Width"
+    value: Meta+Alt+L,none,
+    section: kwin
+  - option: "Krohnkite: Shrink Height"
+    value: Meta+Alt+K,none,
+    section: kwin
+  - option: "Krohnkite: Shrink Width"
+    value: Meta+Alt+H,none,
+    section: kwin
