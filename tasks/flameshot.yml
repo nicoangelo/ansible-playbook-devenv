@@ -1,0 +1,21 @@
+---
+- name: Install flameshot
+  ansible.builtin.apt:
+    deb: https://github.com/flameshot-org/flameshot/releases/download/v{{ flameshot_version }}/flameshot-{{ flameshot_version }}-1.debian-10.amd64.deb
+    state: present
+  become: yes
+
+- name: Autostart flameshot
+  ansible.builtin.copy:
+    dest: ~/.config/autostart/flameshot.desktop
+    mode: 0644
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+    content: |
+      [Desktop Entry]
+      Type=Application
+      Exec=flameshot
+      Hidden=false
+      NoDisplay=false
+      Name=flameshot
+      Comment=Starts flameshot

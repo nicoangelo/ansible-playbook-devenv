@@ -3,6 +3,8 @@ docker_compose_sha256: f3f10cf3dbb8107e9ba2ea5f23c1d2159ff7321d16f0a23051d68d8e2
 
 krohnkite_version: 0.7
 
+flameshot_version: 0.10.1
+
 global_shortcuts: 
   - option: NewTab
     value: ",none,Open a New Tab"
