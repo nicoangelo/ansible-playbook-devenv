@@ -5,6 +5,14 @@
     state: present
   become: yes
 
+- name: Ensure autostart dir exists
+  ansible.builtin.file:
+    dest: ~/.config/autostart/
+    state: directory
+    mode: 0700
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+
 - name: Autostart flameshot
   ansible.builtin.copy:
     dest: ~/.config/autostart/flameshot.desktop

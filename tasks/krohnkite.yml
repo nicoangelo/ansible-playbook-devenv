@@ -8,11 +8,12 @@
   ansible.builtin.shell:
     cmd: plasmapkg2 -t kwinscript -s krohnkite
   register: check_installed
+  failed_when: check_installed.rc != 3 and check_installed.rc != 0
 
 - name: Install Krohnkite using plasmapkg2
   ansible.builtin.shell:
     cmd: plasmapkg2 -t kwinscript -i /tmp/krohnkite.kwinscript
-  when: check_installed.stdout.find('Error') != -1
+  when: check_installed.rc == 3
 
 - name: Create config symlink directory
   ansible.builtin.file:
