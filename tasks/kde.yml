@@ -17,3 +17,12 @@
     no_extra_spaces: yes
     mode: u=rw
   with_items: "{{ global_shortcuts }}"
+
+- name: Enable Num Lock on startup
+  community.general.ini_file:
+    path: "/home/{{ ansible_user_id }}/.config/kcminputrc"
+    section: "Keyboard"
+    option: "NumLock"
+    value: "0"
+    no_extra_spaces: yes
+    mode: u=rw
