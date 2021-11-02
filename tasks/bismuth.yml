@@ -1,0 +1,26 @@
+# Install bismuth (fork of krohnkite)
+---
+
+- name: Check if bismuth is already installed
+  ansible.builtin.shell:
+    cmd: plasmapkg2 -t kwinscript -s bismuth
+  register: check_installed
+  failed_when: check_installed.rc != 3 and check_installed.rc != 0
+
+- name: Download bismuth kwinscript
+  ansible.builtin.get_url:
+    url: "https://github.com/Bismuth-Forge/bismuth/releases/download/v{{ bismuth_version }}/bismuth.tar.gz"
+    dest: /tmp/bismuth.tar.gz
+  when: check_installed.rc == 3
+
+- name: Extract foo.tgz into /var/lib/foo
+  ansible.builtin.unarchive:
+    src: /tmp/bismuth.tar.gz
+    dest: /tmp
+  when: check_installed.rc == 3
+
+- name: Install bismuth using included script
+  ansible.builtin.shell:
+    cmd: ./install.sh
+    chdir: /tmp
+  when: check_installed.rc == 3

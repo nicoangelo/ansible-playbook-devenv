@@ -35,5 +35,7 @@
       tags: konsole
     - include_tasks: tasks/krohnkite.yml
       tags: krohnkite
+    - include_tasks: tasks/bismuth.yml
+      tags: bismuth
     - include_tasks: tasks/zsh.yml
       tags: zsh
