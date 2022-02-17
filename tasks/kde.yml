@@ -7,6 +7,8 @@
     value: "false"
     no_extra_spaces: yes
     mode: u=rw,g=r,o=r
+  tags:
+    - kde
 
 - name: Set shortcuts
   community.general.ini_file:
@@ -17,6 +19,8 @@
     no_extra_spaces: yes
     mode: u=rw
   with_items: "{{ global_shortcuts }}"
+  tags:
+    - kde
 
 - name: Enable Num Lock on startup
   community.general.ini_file:
@@ -26,3 +30,5 @@
     value: "0"
     no_extra_spaces: yes
     mode: u=rw
+  tags:
+    - kde

@@ -1,17 +1,25 @@
 ---
-
 - name: Check if Krohnkite is installed
   ansible.builtin.shell:
     cmd: plasmapkg2 -t kwinscript -s krohnkite
   register: check_installed
   failed_when: check_installed.rc != 3 and check_installed.rc != 0
+  tags:
+    - bismuth
+    - krohnkite
 
 - name: Remove Krohnkite using plasmapkg2
   ansible.builtin.shell:
     cmd: plasmapkg2 -t kwinscript -r krohnkite
   when: check_installed.rc != 3
+  tags:
+    - bismuth
+    - krohnkite
 
 - name: Ensure config entry is removed
   ansible.builtin.file:
     path: ~/.local/share/kwin/scripts/krohnkite/metadata.desktop
     state: absent
+  tags:
+    - bismuth
+    - krohnkite

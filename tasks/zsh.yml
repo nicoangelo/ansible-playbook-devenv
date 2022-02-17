@@ -4,6 +4,9 @@
     src: ./files/.aliases
     dest: "/home/{{ ansible_user_id }}/.aliases"
     mode: 0644
+  tags:
+    - zsh
+
 - name: Load .aliases and .profile in .zshrc
   blockinfile:
     path: "/home/{{ ansible_user_id }}/.zshrc"
@@ -14,3 +17,5 @@
       if [ -f ~/.aliases ]; then
         . ~/.aliases
       fi
+  tags:
+    - zsh

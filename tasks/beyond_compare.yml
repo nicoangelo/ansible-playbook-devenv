@@ -1,13 +1,16 @@
 ---
-
 - name: Check if Beyond Compare is installed
   command: dpkg-query -W bcompare
   register: bcompare_deb_installed
   failed_when: bcompare_deb_installed.rc > 1
   changed_when: bcompare_deb_installed.rc == 1
+  tags:
+    - bc
 
 - name: Install BC .deb
   apt:
     deb: https://www.scootersoftware.com/bcompare-4.3.7.25118_amd64.deb
   become: true
   when: bcompare_deb_installed.rc == 1
+  tags:
+    - bc

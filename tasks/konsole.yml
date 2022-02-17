@@ -9,3 +9,5 @@
     option: DefaultProfile
     value: "Profile.profile"
     no_extra_spaces: yes
+  tags:
+    - konsole

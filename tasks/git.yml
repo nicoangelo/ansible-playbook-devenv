@@ -4,15 +4,21 @@
     state: present
     update_cache: yes
   become: true
+  tags:
+    - git
 
 - name: Configure git user name
   community.general.git_config:
     name: user.name
     scope: global
     value: Nico Angelo
+  tags:
+    - flameshot
 
 - name: Configure git user email
   community.general.git_config:
     name: user.email
     scope: global
     value: "{{ user_email }}"
+  tags:
+    - git
