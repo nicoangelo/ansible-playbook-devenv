@@ -1,3 +1,20 @@
 flameshot_version: 0.10.1
-
 bismuth_version: 3.1.4-4
+
+apt_packages:
+  - openjdk-17-jre
+
+binaries:
+  - name: jq
+    url: https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64
+    checksum: sha256:af986793a515d500ab2d35f8d2aecd656e764504b789b66d7e1a0b727a124c44
+  - name: yq
+    url: https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_amd64
+    checksum: sha256:57b6247bc2406c20a887aee3594399e081759601fd2f8ae9df21938499d76c81
+  - name: plantuml.jar
+    url: https://github.com/plantuml/plantuml/releases/download/v1.2022.1/plantuml-1.2022.1.jar
+  - name: plantuml
+    runner: |
+      [ -z "$1" ] && echo "Must provide path to PlantUML file as single argument." && exit 1
+      SCRIPT=$(dirname "$BASH_SOURCE")
+      java -jar ${SCRIPT}/plantuml.jar $1

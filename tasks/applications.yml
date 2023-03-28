@@ -1,0 +1,34 @@
+---
+- name: Update apt cache
+  ansible.builtin.apt:
+    update_cache: true
+  become: true
+  tags:
+    - applications
+
+- name: Install packages
+  ansible.builtin.apt:
+    name: "{{ apt_packages }}"
+    state: present
+  become: true
+  tags:
+    - applications
+
+- name: Install single-file binaries
+  ansible.builtin.get_url:
+    url: "{{ item.url }}"
+    checksum: "{{ item.checksum | d(omit) }}"
+    dest: "~/.local/bin/{{ item.name }}"
+    mode: 0755
+  loop: "{{ binaries | selectattr('url', 'defined') }}"
+  tags:
+    - applications
+
+- name: Write runner scripts
+  ansible.builtin.copy:
+    dest: "~/.local/bin/{{ item.name }}"
+    content: "{{ item.runner }}"
+    mode: 0755
+  loop: "{{ binaries | selectattr('runner', 'defined') }}"
+  tags:
+    - applications
