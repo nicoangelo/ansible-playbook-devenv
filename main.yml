@@ -1,13 +1,15 @@
 - name: DevEnv
   hosts: all
-  roles:
-    - role: sicruse.powerline-fonts
-      tags: powerline-fonts
-    - role: gantsign.oh-my-zsh
-      tags: oh-my-zsh
   tasks:
-    - name: "Install and configure {{ item }}"
-      ansible.builtin.include_tasks: "tasks/{{ item }}.yml"
+    - name: "Install and configure"
+      ansible.builtin.include_tasks: "tasks/{{ task_name }}.yml"
+      tags: always
+      when: |
+        (ansible_run_tags == ['all'] and ansible_skip_tags == [])
+        or (task_name in ansible_run_tags)
+        or (task_name not in ansible_skip_tags and (task_name in ansible_run_tags or ansible_run_tags == ['all']))
+      loop_control:
+        loop_var: task_name
       loop:
         - applications
         - beyond_compare

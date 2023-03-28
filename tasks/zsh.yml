@@ -1,21 +1,35 @@
 ---
-- name: Write .aliases
-  copy:
-    src: ./files/.aliases
-    dest: "/home/{{ ansible_user_id }}/.aliases"
+- name: Install Powerline fonts
+  ansible.builtin.include_role:
+    name: sicruse.powerline-fonts
+    apply:
+      tags: zsh
+  tags: zsh
+
+- name: Install oh-my-zsh
+  ansible.builtin.include_role:
+    name: gantsign.oh-my-zsh
+    apply:
+      tags: zsh
+  tags: zsh
+
+- name: Write custom zsh config
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: "/home/{{ ansible_user_id }}/.oh-my-zsh/custom/{{ item | basename | replace('.j2', '') }}"
     mode: 0644
+  with_fileglob:
+    - "./files/zsh-custom/*"
+    - "./templates/zsh-custom/*"
   tags:
     - zsh
 
-- name: Load .aliases and .profile in .zshrc
-  blockinfile:
-    path: "/home/{{ ansible_user_id }}/.zshrc"
-    block: |
-      if [ -f ~/.profile ]; then
-        . ~/.profile
-      fi
-      if [ -f ~/.aliases ]; then
-        . ~/.aliases
-      fi
+- name: Clone custom plugins
+  ansible.builtin.git:
+    repo: "{{ item.url }}"
+    dest: "/home/{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/{{ item.url | basename | splitext | first }}"
+    clone: true
+    version: "{{ item.version }}"
+  loop: "{{ oh_my_zsh_custom_plugins }}"
   tags:
     - zsh

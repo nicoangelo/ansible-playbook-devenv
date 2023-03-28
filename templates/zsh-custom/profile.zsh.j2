@@ -1,0 +1,23 @@
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$HOME/.local/bin:$PATH"
+fi
+
+# if snap binary dir exists, add to PATH
+if [ -d "/snap/bin" ] ; then
+    PATH="/snap/bin:$PATH"
+fi
+
+PATH="$HOME/go/bin:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
+export ANSIBLE_REMOTE_USER="{{ default_remote_username }}"
+export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible-vault
+export ANSIBLE_BECOME_PASSWORD_FILE=~/.ansible-become
+
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8

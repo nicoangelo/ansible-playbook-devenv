@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := run
-.PHONY: *
+.PHONY: galaxy run check
 
 extra-vars.yaml:
 	@cp ./extra-vars.example.yaml ./extra-vars.yaml

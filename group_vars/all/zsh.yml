@@ -8,6 +8,13 @@ oh_my_zsh_plugins:
   - vscode
   - kubectl
   - docker
+  - zsh-autosuggestions
+
 oh_my_zsh_install: true
+oh_my_zsh_update_mode: reminder
 users:
   - username: "{{ ansible_user_id }}"
+
+oh_my_zsh_custom_plugins:
+  - url: git@github.com:zsh-users/zsh-autosuggestions.git
+    version: v0.7.0
