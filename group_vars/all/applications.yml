@@ -1,8 +1,8 @@
-flameshot_version: 0.10.1
 bismuth_version: 3.1.4-4
 
 apt_packages:
   - openjdk-17-jre
+  - flameshot
 
 binaries:
   - name: jq

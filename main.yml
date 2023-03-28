@@ -31,8 +31,6 @@
 
     - include_tasks: tasks/kde.yml
       tags: kde
-    - include_tasks: tasks/flameshot.yml
-      tags: flameshot
     - include_tasks: tasks/konsole.yml
       tags: konsole
     - include_tasks: tasks/krohnkite.yml
