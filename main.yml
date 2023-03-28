@@ -6,7 +6,7 @@
         powerline_fonts:
           - "Meslo\\ Slashed"
       tags: powerline-fonts
-    
+
     - role: gantsign.oh-my-zsh
       vars:
         oh_my_zsh_theme: agnoster
@@ -39,3 +39,5 @@
       tags: bismuth
     - include_tasks: tasks/zsh.yml
       tags: zsh
+    - include_tasks: tasks/rclone_gdrive.yml
+      tags: rclone
