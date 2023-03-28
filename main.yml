@@ -1,43 +1,22 @@
-- hosts: all
-
+- name: DevEnv
+  hosts: all
   roles:
     - role: sicruse.powerline-fonts
-      vars:
-        powerline_fonts:
-          - "Meslo\\ Slashed"
       tags: powerline-fonts
-
     - role: gantsign.oh-my-zsh
-      vars:
-        oh_my_zsh_theme: agnoster
-        oh_my_zsh_plugins:
-          - git
-        oh_my_zsh_install: true
-        users:
-          - username: "{{ ansible_user_id }}"
       tags: oh-my-zsh
-
   tasks:
-    - include_tasks: tasks/applications.yml
-      tags: applications
-    - include_tasks: tasks/beyond_compare.yml
-      tags: beyond_compare
-    - include_tasks: tasks/code.yml
-      tags: code
-    - include_tasks: tasks/docker.yml
-      tags: docker
-    - include_tasks: tasks/git.yml
-      tags: git
-
-    - include_tasks: tasks/kde.yml
-      tags: kde
-    - include_tasks: tasks/konsole.yml
-      tags: konsole
-    - include_tasks: tasks/krohnkite.yml
-      tags: krohnkite
-    - include_tasks: tasks/bismuth.yml
-      tags: bismuth
-    - include_tasks: tasks/zsh.yml
-      tags: zsh
-    - include_tasks: tasks/rclone_gdrive.yml
-      tags: rclone
+    - name: "Install and configure {{ item }}"
+      ansible.builtin.include_tasks: "tasks/{{ item }}.yml"
+      loop:
+        - applications
+        - beyond_compare
+        - code
+        - docker
+        - git
+        - kde
+        - konsole
+        - krohnkite
+        - bismuth
+        - zsh
+        - rclone_gdrive

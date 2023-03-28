@@ -1,37 +1,33 @@
-global_shortcuts: 
+global_shortcuts:
+  - option: _k_friendly_name
+    value: Konsole
+    section: org.kde.konsole.desktop
   - option: NewTab
-    value: ",none,Open a New Tab"
+    value: "none,none,Open a New Tab"
     section: org.kde.konsole.desktop
   - option: NewWindow
     value: "none,none,Open a New Window"
     section: org.kde.konsole.desktop
-  - option: _k_friendly_name
-    value: Launch Konsole
-    section: org.kde.konsole.desktop
   - option: _launch
-    value: Meta+T,none,Launch Konsole
+    value: Ctrl+Alt+T,none,Launch Konsole
     section: org.kde.konsole.desktop
+
   - option: _k_friendly_name
     value: Launch Dolphin
     section: org.kde.dolphin.desktop
   - option: _launch
     value: Meta+E,none,Launch Dolphin
     section: org.kde.dolphin.desktop
-  - option: "Krohnkite: Three Column Layout"
-    value: Meta+Shift+T,none,
-    section: kwin
-  - option: "Krohnkite: Tile Layout"
-    value: Alt+Shift+T,none,
-    section: kwin
-  - option: "Krohnkite: Grow Height"
-    value: Meta+Alt+J,none,
-    section: kwin
-  - option: "Krohnkite: Grow Width"
-    value: Meta+Alt+L,none,
-    section: kwin
-  - option: "Krohnkite: Shrink Height"
-    value: Meta+Alt+K,none,
-    section: kwin
-  - option: "Krohnkite: Shrink Width"
-    value: Meta+Alt+H,none,
-    section: kwin
+
+  - option: _k_friendly_name
+    value: Window Tiling
+    section: bismuth
+  - option: "toggle_monocle_layout"
+    value: Meta+M,Meta+M,Toggle Monocle Layout
+    section: bismuth
+  - option: "toggle_tile_layout"
+    value: Alt+Shift+T,Meta+T,Toggle Tile Layout
+    section: bismuth
+  - option: "toggle_three_column_layout"
+    value: Meta+Shift+T,,Toggle Three Column Layout
+    section: bismuth

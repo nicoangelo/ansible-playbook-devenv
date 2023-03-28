@@ -1,0 +1,13 @@
+powerline_fonts:
+  - "Meslo\\ Slashed"
+
+oh_my_zsh_theme: agnoster
+oh_my_zsh_plugins:
+  - git
+  - terraform
+  - vscode
+  - kubectl
+  - docker
+oh_my_zsh_install: true
+users:
+  - username: "{{ ansible_user_id }}"
