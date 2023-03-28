@@ -9,7 +9,7 @@ global_shortcuts:
     value: "none,none,Open a New Window"
     section: org.kde.konsole.desktop
   - option: _launch
-    value: Ctrl+Alt+T,none,Launch Konsole
+    value: Ctrl+Alt+T,none,Konsole
     section: org.kde.konsole.desktop
 
   - option: _k_friendly_name

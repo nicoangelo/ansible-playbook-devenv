@@ -5,7 +5,6 @@
   register: check_installed
   failed_when: check_installed.rc != 3 and check_installed.rc != 0
   tags:
-    - bismuth
     - krohnkite
 
 - name: Remove Krohnkite using plasmapkg2
@@ -13,7 +12,6 @@
     cmd: plasmapkg2 -t kwinscript -r krohnkite
   when: check_installed.rc != 3
   tags:
-    - bismuth
     - krohnkite
 
 - name: Ensure config entry is removed
@@ -21,5 +19,4 @@
     path: ~/.local/share/kwin/scripts/krohnkite/metadata.desktop
     state: absent
   tags:
-    - bismuth
     - krohnkite

@@ -5,7 +5,7 @@
   failed_when: code_deb_installed.rc > 1
   changed_when: code_deb_installed.rc == 1
   tags:
-    - vscode
+    - code
 
 - name: Install VS Code .deb
   apt:
@@ -13,4 +13,4 @@
   become: true
   when: code_deb_installed.rc == 1
   tags:
-    - vscode
+    - code

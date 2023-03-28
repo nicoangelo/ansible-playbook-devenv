@@ -13,7 +13,7 @@
     scope: global
     value: Nico Angelo
   tags:
-    - flameshot
+    - git
 
 - name: Configure git user email
   community.general.git_config:

@@ -5,7 +5,7 @@
   failed_when: bcompare_deb_installed.rc > 1
   changed_when: bcompare_deb_installed.rc == 1
   tags:
-    - bc
+    - beyond_compare
 
 - name: Install BC .deb
   apt:
@@ -13,4 +13,4 @@
   become: true
   when: bcompare_deb_installed.rc == 1
   tags:
-    - bc
+    - beyond_compare
