@@ -11,11 +11,14 @@ binaries:
   - name: yq
     url: https://github.com/mikefarah/yq/releases/download/v4.25.1/yq_linux_amd64
     checksum: sha256:57b6247bc2406c20a887aee3594399e081759601fd2f8ae9df21938499d76c81
-  - name: plantuml.jar
-    url: https://github.com/plantuml/plantuml/releases/download/v1.2022.1/plantuml-1.2022.1.jar
   - name: plantuml
+    url: https://github.com/plantuml/plantuml/releases/download/v1.2022.1/plantuml-1.2022.1.jar
+    binary_filename: plantuml.jar
     runner: |
       #!/bin/bash
       [ -z "$1" ] && echo "Must provide path to PlantUML file as single argument." && exit 1
       SCRIPT=$(dirname "$BASH_SOURCE")
       java -jar ${SCRIPT}/plantuml.jar $1
+  - name: regctl
+    url: https://github.com/regclient/regclient/releases/download/v0.4.7/regctl-linux-amd64
+    checksum: sha256:8cabc58130279c3c93636d48633ec2763bf3f9c389dc1f693aabfe30a204d834

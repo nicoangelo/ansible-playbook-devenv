@@ -18,9 +18,11 @@
   ansible.builtin.get_url:
     url: "{{ item.url }}"
     checksum: "{{ item.checksum | d(omit) }}"
-    dest: "~/.local/bin/{{ item.name }}"
+    dest: "~/.local/bin/{{ item.binary_filename | d(item.name) }}"
     mode: 0755
   loop: "{{ binaries | selectattr('url', 'defined') }}"
+  loop_control:
+    label: "{{ item.name }}"
   tags:
     - applications
 
@@ -30,5 +32,7 @@
     content: "{{ item.runner }}"
     mode: 0755
   loop: "{{ binaries | selectattr('runner', 'defined') }}"
+  loop_control:
+    label: "{{ item.name }}"
   tags:
     - applications
