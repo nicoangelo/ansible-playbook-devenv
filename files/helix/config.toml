@@ -1,0 +1,36 @@
+theme = "solarized_dark"
+
+[editor]
+# Show currently open buffers, only when more than one exists.
+bufferline = "multiple"
+# Highlight all lines with a cursor
+cursorline = true
+# Use relative line numbers
+line-number = "relative"
+# Show a ruler at column 120
+rulers = [120]
+# Force the theme to show colors
+true-color = true
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
+
+[editor.indent-guides]
+character = "▏"
+render = true
+skip-levels = 1
+
+[editor.statusline]
+left = ["mode", "spinner"]
+center = ["file-base-name"]
+right = ["version-control"]
+
+[editor.whitespace.render]
+space = "all"
+tab = "all"
+newline = "none"
+
+[editor.file-picker]
+hidden = false
