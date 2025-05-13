@@ -1,0 +1,10 @@
+---
+- name: Write custom helix config
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: "~{{ ansible_user_id }}/.config/helix/{{ item | basename | replace('.j2', '') }}"
+    mode: 0644
+  with_fileglob:
+    - "./files/helix/*"
+  tags:
+    - helix
