@@ -1,0 +1,10 @@
+---
+- name: Write custom kitty config
+  ansible.builtin.template:
+    src: "{{ item }}"
+    dest: "~{{ ansible_user_id }}/.config/kitty/{{ item | basename | replace('.j2', '') }}"
+    mode: 0644
+  with_fileglob:
+    - "./files/kitty/*"
+  tags:
+    - kitty
