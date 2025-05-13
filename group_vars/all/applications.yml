@@ -22,3 +22,26 @@ binaries:
   - name: regctl
     url: https://github.com/regclient/regclient/releases/download/v0.4.7/regctl-linux-amd64
     checksum: sha256:8cabc58130279c3c93636d48633ec2763bf3f9c389dc1f693aabfe30a204d834
+
+homebrew_installed_packages:
+  # - ansible # Installed via Pip.
+  - git
+  - go
+  - gpg
+  - nmap
+  - node
+  - nvm
+  - helix
+  - jq
+  - yq
+  - k9s 
+
+homebrew_cask_apps:
+  - docker
+  - visual-studio-code
+  - keepassxc
+  - nikitabobko/tap/aerospace
+  - nextcloud
+  - kitty
+  - raycast
+  - beyond-compare

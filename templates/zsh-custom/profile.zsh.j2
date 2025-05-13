@@ -13,7 +13,26 @@ if [ -d "/snap/bin" ] ; then
     PATH="/snap/bin:$PATH"
 fi
 
-PATH="$HOME/go/bin:/usr/local/go/bin:/home/linuxbrew/.linuxbrew/bin:$PATH"
+# if homebrew binary dir exists, add to PATH
+if [ -d "/opt/homebrew/bin" ] ; then
+    PATH="/opt/homebrew/bin:$PATH"
+fi
+
+# if linux homebrew binary dir exists, add to PATH
+if [ -d "/home/linuxbrew/.linuxbrew/bin" ] ; then
+    PATH="/home/linuxbrew/.linuxbrew/bin:$PATH"
+fi
+
+# if go dir exists, add to PATH
+if [ -d "$HOME/go/bin" ] ; then
+    PATH="$HOME/go/bin:/usr/local/go/bin:$PATH"
+fi
+
+# if python dir exists, add to PATH
+if [ -d "$HOME/Library/Python/3.9/bin" ] ; then
+    PATH="$HOME/Library/Python/3.9/bin:$PATH"
+fi
+
 export ANSIBLE_REMOTE_USER="{{ default_remote_username }}"
 export ANSIBLE_VAULT_PASSWORD_FILE=~/.ansible-vault
 export ANSIBLE_BECOME_PASSWORD_FILE=~/.ansible-become

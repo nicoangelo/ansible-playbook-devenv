@@ -3,7 +3,8 @@ roles:
     version: v1.2.1
   - name: gantsign.oh-my-zsh
     version: 2.6.0
+  - name: elliotweiser.osx-command-line-tools
 
 collections:
   - name: community.general
-    version: "2.4.0"
+  - name: geerlingguy.mac

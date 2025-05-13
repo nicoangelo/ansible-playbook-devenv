@@ -17,4 +17,4 @@ users:
 
 oh_my_zsh_custom_plugins:
   - url: git@github.com:zsh-users/zsh-autosuggestions.git
-    version: v0.7.0
+    version: v0.7.1

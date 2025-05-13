@@ -1,0 +1,31 @@
+dockitems_remove:
+  - Launchpad
+  - Safari
+  - Messages
+  - Mail
+  - Maps
+  - Photos
+  - FaceTime
+  - Calendar
+  - Contacts
+  - Reminders
+  - Notes
+  - Freeform
+  - TV
+  - Music
+  - Keynote
+  - Numbers
+  - Pages
+  - App Store
+  - System Settings
+
+dockitems_persist:
+  - name: "Firefox"
+    path: "/Applications/Firefox.app/"
+    pos: 1
+  - name: "Visual Studio Code"
+    path: "/Applications/Visual Studio Code.app/"
+    pos: 2
+  - name: "kitty"
+    path: "/Applications/kitty.app/"
+    pos: 3

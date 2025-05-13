@@ -16,7 +16,7 @@
 - name: Write custom zsh config
   ansible.builtin.template:
     src: "{{ item }}"
-    dest: "/home/{{ ansible_user_id }}/.oh-my-zsh/custom/{{ item | basename | replace('.j2', '') }}"
+    dest: "~{{ ansible_user_id }}/.oh-my-zsh/custom/{{ item | basename | replace('.j2', '') }}"
     mode: 0644
   with_fileglob:
     - "./files/zsh-custom/*"
@@ -27,7 +27,7 @@
 - name: Clone custom plugins
   ansible.builtin.git:
     repo: "{{ item.url }}"
-    dest: "/home/{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/{{ item.url | basename | splitext | first }}"
+    dest: "~{{ ansible_user_id }}/.oh-my-zsh/custom/plugins/{{ item.url | basename | splitext | first }}"
     clone: true
     version: "{{ item.version }}"
   loop: "{{ oh_my_zsh_custom_plugins }}"
