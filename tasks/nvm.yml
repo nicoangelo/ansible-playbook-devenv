@@ -1,0 +1,11 @@
+---
+- name: Create NVM directory
+  ansible.builtin.file:
+    name: "~{{ ansible_user_id }}/.nvm"
+    state: directory
+    mode: '0755'
+    owner: "{{ ansible_user_id }}"
+    group: "{{ ansible_user_id }}"
+  tags: nvm
+
+# Sourcing of nvm.sh is done in a .zsh-custom file: files/zsh-custom/nvm.zsh
