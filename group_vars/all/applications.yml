@@ -41,6 +41,11 @@ homebrew_installed_packages:
   - fluxcd/tap/flux
   - gum
   - bitwarden-cli
+  - gitui
+  - hashicorp/tap/terraform
+  - opentofu
+  - gnu-tar
+  - unzip
 
 homebrew_cask_apps:
   - docker
@@ -53,3 +58,5 @@ homebrew_cask_apps:
   - beyond-compare
   - amethyst
   - studio-3t
+  - google-cloud-sdk
+  - intellij-idea-ce
