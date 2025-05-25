@@ -1,0 +1,2 @@
+alias vi='kitten edit-in-kitty'
+alias sd='sudo $(which kitten) run-shell'
