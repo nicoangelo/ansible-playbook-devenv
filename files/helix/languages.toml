@@ -5,3 +5,21 @@ language-servers = [ "yaml-language-server" ]
 auto-format = true
 formatter = { command = "prettier", args = ["--parser", "yaml"] }
 
+[[language]]
+name = "go"
+auto-format = true
+formatter = { command = "goimports" }
+
+[language-server.jdtls]
+command = "jdtls"
+args = ["--jvm-arg=-javaagent:/Users/nicolas.angelo/.local/share/eclipse/lombok.jar"]
+
+[language-server.jdtls.config.java.inlayHints]
+parameterNames.enabled = "all"
+
+[[language]]
+name = "java"
+scope = "source.java"
+file-types = ["java"]
+roots = ["pom.xml", "build.gradle"]
+language-servers = ["jdtls"]

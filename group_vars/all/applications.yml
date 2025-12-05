@@ -46,6 +46,7 @@ homebrew_installed_packages:
   - opentofu
   - gnu-tar
   - unzip
+  - jdtls
 
 homebrew_cask_apps:
   - docker
